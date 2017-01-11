@@ -24,7 +24,6 @@ import javafx.stage.Stage;
  * @author vagonon1
  */
 public class Meteo extends Application {
-    ///////changement
     
     private static final boolean TEST=true;
     

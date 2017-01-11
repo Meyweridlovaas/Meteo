@@ -48,7 +48,7 @@ public class ThermometreWindowController extends Fenetre implements IDoubleObser
     }
 
     @Override
-    public void update(double d) {
-        setProgres(d);
+    public void update() {
+        setProgres(observe.getTemperature());
     }   
 }

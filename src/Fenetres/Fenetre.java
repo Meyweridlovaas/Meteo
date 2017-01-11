@@ -15,11 +15,11 @@ import meteo.Capteur;
  */
 public abstract class Fenetre implements IDoubleObservateur{
     
-    private Capteur observe;
+    protected Capteur observe;
     
     @Override
-    public void ajouterObserve(IDoubleObservable obs) {
-        if(obs.getClass()==Capteur.class)
+    public void ajouterObserve(IDoubleObservable obs) {        
+        if(Capteur.class.isInstance(obs))
             observe=(Capteur)obs;
     }
     

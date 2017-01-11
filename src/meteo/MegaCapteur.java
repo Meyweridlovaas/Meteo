@@ -44,7 +44,7 @@ public class MegaCapteur extends Capteur implements IDoubleObservateur{
     }
     
     @Override
-    public void update(double d) {        
+    public void update() {        
         int poidsTotal=0;
         double temp=0;
         if(hasCapteur()){            

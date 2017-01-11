@@ -11,7 +11,7 @@ package Interfaces;
  * @author vagonon1
  */
 public interface IDoubleObservateur {
-    void update(double d);
+    void update();
     
     void ajouterObserve(IDoubleObservable obs);
     

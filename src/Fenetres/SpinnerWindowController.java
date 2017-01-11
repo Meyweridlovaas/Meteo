@@ -45,7 +45,7 @@ public class SpinnerWindowController extends Fenetre implements Initializable, I
     }
 
     @Override
-    public void update(double d) {
-        valueFactory.setValue(d);
+    public void update() {
+        valueFactory.setValue(observe.getTemperature());
     }
 }

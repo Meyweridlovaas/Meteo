@@ -38,7 +38,8 @@ public class IconeWindowController extends Fenetre implements IDoubleObservateur
     }
 
     @Override
-    public void update(double d) {
-        ChoixImage(d);
+    public void update() {
+        //ChoixImage(d);
+        ChoixImage(observe.getTemperature());
     }
 }

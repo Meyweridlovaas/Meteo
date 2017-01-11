@@ -31,7 +31,7 @@ public abstract class Capteur implements IDoubleObservable{
     protected void setTemperature(double temperature){
         this.temperature=temperature;
         observateurs.forEach((obs) -> {
-            Platform.runLater(()->obs.update(temperature));
+            Platform.runLater(()->obs.update());
         });
     }
     
@@ -39,7 +39,7 @@ public abstract class Capteur implements IDoubleObservable{
     public void ajouterObservateur(IDoubleObservateur obs){
         observateurs.add(obs);
         obs.ajouterObserve(this);
-        Platform.runLater(()->obs.update(temperature));
+        Platform.runLater(()->obs.update());
     }
 
     @Override
