@@ -68,4 +68,8 @@ public class MegaCapteur extends Capteur implements IDoubleObservateur{
             supprimerCapteur((Capteur)obs);
     }
     
+    @Override
+    public String toString(){
+        return "Méga capteur";
+    }
 }

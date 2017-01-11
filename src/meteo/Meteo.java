@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  */
 public class Meteo extends Application {
     
-    private static final boolean TEST=true;
+    private static final boolean TEST=false;
     
     private static final String TITLE="Thermostat";
     private static final boolean IS_RESIZABLE=false;
@@ -102,7 +102,14 @@ public class Meteo extends Application {
             mc.ajouterCapteur(c);
             mc.ajouterCapteur(c2, 2);
         }else{
-            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fenetres/MainWindow.fxml"));
+            Parent root =loader.load();
+
+            Scene scene = new Scene(root, 500, 250);
+
+            primaryStage.setTitle("Fenêtre");
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
     }
 

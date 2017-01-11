@@ -20,7 +20,7 @@ import meteo.Capteur;
  *
  * @author vagonon1
  */
-public class SpinnerWindowController extends Fenetre implements Initializable, IDoubleObservateur {
+public class SpinnerWindowController extends Fenetre implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -47,5 +47,10 @@ public class SpinnerWindowController extends Fenetre implements Initializable, I
     @Override
     public void update() {
         valueFactory.setValue(observe.getTemperature());
+    }
+    
+    @Override
+    public String toString(){
+        return "Fenetre Spinner";
     }
 }

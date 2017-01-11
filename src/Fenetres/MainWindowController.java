@@ -10,7 +10,12 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+
+import meteo.Capteur;
 import meteo.CapteurAvecAlgorithme;
 import meteo.MegaCapteur;
 
@@ -21,16 +26,29 @@ import meteo.MegaCapteur;
  */
 public class MainWindowController implements Initializable {
     
-    ObservableList<CapteurAvecAlgorithme> capteursAlgo =FXCollections.observableArrayList();
-    ObservableList<MegaCapteur> megaCapteurs =FXCollections.observableArrayList();
-    ObservableList<Fenetre> fenetres =FXCollections.observableArrayList();
+    ObservableList<CapteurAvecAlgorithme> capteursAlgo;
+    ObservableList<MegaCapteur> megaCapteurs;
+    ObservableList<Fenetre> fenetres;
+
+    @FXML private ListView<CapteurAvecAlgorithme> listCapt ;
+    @FXML private ListView<MegaCapteur> listMegaCapt ;
+    @FXML private ListView<Fenetre> listFenetre ;
     
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) {        
+        capteursAlgo=listCapt.getItems();
+        megaCapteurs=listMegaCapt.getItems();
+        fenetres=listFenetre.getItems();
+        capteursAlgo.add(new CapteurAvecAlgorithme());
+        megaCapteurs.add(new MegaCapteur());
+        SpinnerWindowController ctrl= new SpinnerWindowController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fenetres/SpinnerWindow.fxml"));
+        loader.setController(ctrl);
+        fenetres.add(ctrl);
+        fenetres.add(new IconeWindowController());
     }
     
     @FXML
@@ -75,7 +93,7 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void ModifierFenetre(){
-        
+        System.out.println(listFenetre.getSelectionModel().getSelectedItem());
     }
     
 }

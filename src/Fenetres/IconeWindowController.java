@@ -17,7 +17,7 @@ import meteo.Capteur;
  *
  * @author flsarret
  */
-public class IconeWindowController extends Fenetre implements IDoubleObservateur {
+public class IconeWindowController extends Fenetre {
     @FXML private ImageView icone;
     
     private SelectionneurImage selectionneurImage;
@@ -38,8 +38,12 @@ public class IconeWindowController extends Fenetre implements IDoubleObservateur
     }
 
     @Override
-    public void update() {
-        //ChoixImage(d);
+    public void update() {        
         ChoixImage(observe.getTemperature());
+    }
+    
+    @Override
+    public String toString(){
+        return "Fenetre Icone";
     }
 }

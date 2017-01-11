@@ -48,4 +48,9 @@ public class CapteurAvecAlgorithme extends Capteur {
         setTemperature(algorithme.genererTemperature());
     }
     
+    @Override
+    public String toString(){
+        return "Capteur avec algorithme";
+    }
+    
 }

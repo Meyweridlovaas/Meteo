@@ -18,7 +18,7 @@ import meteo.Capteur;
  *
  * @author flsarret
  */
-public class ThermometreWindowController extends Fenetre implements IDoubleObservateur{
+public class ThermometreWindowController extends Fenetre {
     
     @FXML ProgressBar thermometre;
     @FXML Text thermometreValeurMin;
@@ -50,5 +50,10 @@ public class ThermometreWindowController extends Fenetre implements IDoubleObser
     @Override
     public void update() {
         setProgres(observe.getTemperature());
-    }   
+    }
+    
+    @Override
+    public String toString(){
+        return "Fenetre Thermomètre";
+    }
 }
