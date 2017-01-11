@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300" prefWidth="200" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fenetres.ThermometreWindowController">
+   <children>
+      <ProgressBar fx:id="thermometre" layoutX="4.0" layoutY="140.0" prefWidth="200.0" progress="1.0" rotate="-90.0" />
+      <Text fx:id="thermometreValeurMin" layoutX="55.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+      <Text fx:id="thermometreValeurMax" layoutX="59.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+   </children>
+</AnchorPane>
