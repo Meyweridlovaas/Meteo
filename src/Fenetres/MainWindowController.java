@@ -49,6 +49,7 @@ public class MainWindowController implements Initializable {
         loader.setController(ctrl);
         fenetres.add(ctrl);
         fenetres.add(new IconeWindowController());
+        fenetres.add(new ThermometreWindowController());
     }
     
     @FXML
@@ -78,7 +79,7 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void SupprimerFenetre(){
-        
+        fenetres.remove(listFenetre.getSelectionModel().getSelectedIndex());
     }
     
     @FXML
