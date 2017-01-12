@@ -35,6 +35,8 @@ public class MainWindowController implements Initializable {
     @FXML private ListView<MegaCapteur> listMegaCapt ;
     @FXML private ListView<Fenetre> listFenetre ;
     
+    Button b = new Button();
+    
     /**
      * Initializes the controller class.
      */
@@ -51,6 +53,9 @@ public class MainWindowController implements Initializable {
         fenetres.add(ctrl);
         fenetres.add(new IconeWindowController());
         fenetres.add(new ThermometreWindowController());
+        listFenetre.getSelectionModel().selectFirst();
+        listCapt.getSelectionModel().selectFirst();
+        listMegaCapt.getSelectionModel().selectFirst();
     }
     
     @FXML
@@ -87,6 +92,8 @@ public class MainWindowController implements Initializable {
     public void ModifierCapteurAlgo(){
         //capteursAlgo.get(listCapt.getSelectionModel().getSelectedIndex()).setAlgorithme(new AlgorithmeTempAleatoireBorne());
         //listCapt.getSelectionModel().getSelectedItem().setAlgorithme(new AlgorithmeTempAleatoireBorne());
+        ModificationCapteurAlgoWindow win = new ModificationCapteurAlgoWindow(listCapt.getSelectionModel().getSelectedItem());
+        win.show();
     }
     
     @FXML
