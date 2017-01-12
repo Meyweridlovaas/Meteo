@@ -50,7 +50,7 @@ public class CapteurAvecAlgorithme extends Capteur {
     
     @Override
     public String toString(){
-        return "Capteur avec algorithme";
+        return "Capteur avec algorithme "+algorithme;
     }
     
 }

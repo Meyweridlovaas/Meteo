@@ -38,4 +38,8 @@ public class AlgorithmeTempAleatoireBorne extends AlgorithmeTemperature{
         return ecart*random()+min;
     }
     
+    @Override
+    public String toString(){
+        return "température aléatoire borné";
+    }
 }

@@ -18,4 +18,9 @@ public class AlgorithmeTempAleatoire extends AlgorithmeTemperature{
         return random()*Double.MAX_VALUE*2;
     }
     
+    @Override
+    public String toString(){
+        return "température aléatoire";
+    }
+    
 }

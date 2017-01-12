@@ -28,4 +28,9 @@ public class AlgorithmeTempConstant extends AlgorithmeTemperature{
         return valeur;
     }
     
+    @Override
+    public String toString(){
+        return "température constant";
+    }
+    
 }

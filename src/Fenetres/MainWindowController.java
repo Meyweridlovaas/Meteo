@@ -5,6 +5,7 @@
  */
 package Fenetres;
 
+import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -69,12 +70,12 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void SupprimerCapteurAlgo(){
-        
+        capteursAlgo.remove(listCapt.getSelectionModel().getSelectedIndex());
     }
     
     @FXML
     public void SupprimerMegaCapteur(){
-        
+        megaCapteurs.remove(listMegaCapt.getSelectionModel().getSelectedIndex());
     }
     
     @FXML
@@ -84,7 +85,8 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void ModifierCapteurAlgo(){
-        
+        //capteursAlgo.get(listCapt.getSelectionModel().getSelectedIndex()).setAlgorithme(new AlgorithmeTempAleatoireBorne());
+        //listCapt.getSelectionModel().getSelectedItem().setAlgorithme(new AlgorithmeTempAleatoireBorne());
     }
     
     @FXML
@@ -94,7 +96,7 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void ModifierFenetre(){
-        System.out.println(listFenetre.getSelectionModel().getSelectedItem());
+        //System.out.println(listFenetre.getSelectionModel().getSelectedItem());
     }
     
 }
