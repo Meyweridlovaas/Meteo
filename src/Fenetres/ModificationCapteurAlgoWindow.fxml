@@ -18,8 +18,8 @@
   </columnConstraints>
   <Label text="Intervalle de mise à jour" GridPane.halignment="CENTER" />
   <Label GridPane.rowIndex="1" text="Algorithme utilisé" GridPane.halignment="CENTER"/>
-  <TextField GridPane.columnIndex="1" text="test 2" GridPane.halignment="CENTER" fx:id="tfMAJ" />
-  <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" />  
+  <Spinner GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="spinMAJ" />
+  <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="cbAlgo"/>  
   <Button GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Ok"/>
   <Button GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Annuler"/>
 </GridPane>
