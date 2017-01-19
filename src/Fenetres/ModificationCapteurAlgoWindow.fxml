@@ -27,9 +27,9 @@
         <ColumnConstraints hgrow="SOMETIMES"/>
         <ColumnConstraints hgrow="SOMETIMES"/>   
     </columnConstraints>
-    <TextField />
-    <TextField  GridPane.columnIndex="1"/>
+    <TextField fx:id="tfParam1"/>
+    <TextField  GridPane.columnIndex="1" fx:id="tfParam2"/>
   </GridPane>  
-  <Button GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Ok"/>
-  <Button GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Annuler"/>
+  <Button GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Ok" onAction="#ok"/>
+  <Button GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Annuler" onAction="#annuler"/>
 </GridPane>

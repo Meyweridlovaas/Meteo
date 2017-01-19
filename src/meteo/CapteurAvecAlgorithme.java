@@ -32,6 +32,13 @@ public class CapteurAvecAlgorithme extends Capteur {
         thread=new ThreadCapteur(this, intervalleMiseAJour);
     }
     
+    /**
+     * @return the algorithme
+     */
+    public AlgorithmeTemperature getAlgorithme() {
+        return algorithme;
+    }
+    
     public void setAlgorithme(AlgorithmeTemperature algo){
         algorithme=algo;
     }
@@ -45,12 +52,14 @@ public class CapteurAvecAlgorithme extends Capteur {
     }     
     
     public void setTemperature(){
-        setTemperature(algorithme.genererTemperature());
+        setTemperature(getAlgorithme().genererTemperature());
     }
     
     @Override
     public String toString(){
-        return "Capteur avec algorithme "+algorithme;
+        return "Capteur avec algorithme "+getAlgorithme();
     }
+
+    
     
 }
