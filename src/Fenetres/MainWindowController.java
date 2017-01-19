@@ -60,7 +60,12 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void AjouterCapteurAlgo(){
-        capteursAlgo.add(new CapteurAvecAlgorithme()); //à compléter
+        CapteurAvecAlgorithme capt=new CapteurAvecAlgorithme();
+        ModificationCapteurAlgoWindow win = new ModificationCapteurAlgoWindow(capt);
+        win.showAndWait();
+        if(!win.hasCanceled()){
+            capteursAlgo.add(capt);
+        }        
     }
     
     @FXML
@@ -93,7 +98,7 @@ public class MainWindowController implements Initializable {
         //capteursAlgo.get(listCapt.getSelectionModel().getSelectedIndex()).setAlgorithme(new AlgorithmeTempAleatoireBorne());
         //listCapt.getSelectionModel().getSelectedItem().setAlgorithme(new AlgorithmeTempAleatoireBorne());
         ModificationCapteurAlgoWindow win = new ModificationCapteurAlgoWindow(listCapt.getSelectionModel().getSelectedItem());
-        win.show();
+        win.showAndWait();        
     }
     
     @FXML

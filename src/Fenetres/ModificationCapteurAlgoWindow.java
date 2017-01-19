@@ -34,18 +34,18 @@ import meteo.CapteurAvecAlgorithme;
  */
 public class ModificationCapteurAlgoWindow extends Stage {
     
-    private DoubleProperty intervalleMAJ= new SimpleDoubleProperty();
     private CapteurAvecAlgorithme capteur;
     private SpinnerValueFactory<Double> valueFactory;
+    private boolean hasCanceled;
     
     @FXML Spinner<Double> spinMAJ;
     @FXML ChoiceBox cbAlgo;
     @FXML TextField tfParam1;
     @FXML TextField tfParam2;
 
-    public ModificationCapteurAlgoWindow(CapteurAvecAlgorithme capt){
-        //intervalleMAJ.setValue(capt.getIntervalleMAJ());
+    public ModificationCapteurAlgoWindow(CapteurAvecAlgorithme capt){        
         capteur=capt;
+        hasCanceled=false;
         
         FXMLLoader modificationWindowLoader= new FXMLLoader(getClass().getResource("ModificationCapteurAlgoWindow.fxml"));
         modificationWindowLoader.setController(this); 
@@ -59,14 +59,28 @@ public class ModificationCapteurAlgoWindow extends Stage {
     
     @FXML
     private void initialize(){
-        //intervalleMAJ.setValue(capteur.getIntervalleMAJ());
-        //spinMAJ
+        valueFactory=new SpinnerValueFactory<Double>() {
+            @Override
+            public void decrement(int steps) {
+                if(getValue()>0){
+                    setValue(getValue()-0.5);
+                }                
+            }
+
+            @Override
+            public void increment(int steps) {
+                setValue(getValue()+0.5);
+            }
+        };
+        spinMAJ.setValueFactory(valueFactory);
+        valueFactory.setValue(capteur.getIntervalleMAJ());
         cbAlgo.getItems().addAll(capteur.getAlgorithme(),new AlgorithmeTempAleatoire(),new AlgorithmeTempConstant(),new AlgorithmeTempAleatoireFenetre(),new AlgorithmeTempAleatoireBorne());
         cbAlgo.getSelectionModel().selectFirst();
     }
     
     @FXML
     private void annuler(){
+        hasCanceled=true;
         close();
     }
     
@@ -88,6 +102,14 @@ public class ModificationCapteurAlgoWindow extends Stage {
             
         }       
         capteur.setAlgorithme(nouvelAlgo);
+        capteur.setIntervalleMAJ(valueFactory.getValue());
         close();
+    }
+
+    /**
+     * @return the hasCanceled
+     */
+    public boolean hasCanceled() {
+        return hasCanceled;
     }
 }
