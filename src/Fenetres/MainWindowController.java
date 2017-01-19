@@ -35,8 +35,6 @@ public class MainWindowController implements Initializable {
     @FXML private ListView<MegaCapteur> listMegaCapt ;
     @FXML private ListView<Fenetre> listFenetre ;
     
-    Button b = new Button();
-    
     /**
      * Initializes the controller class.
      */
@@ -96,6 +94,7 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void SupprimerFenetre(){
+        listFenetre.getSelectionModel().getSelectedItem().close();
         fenetres.remove(listFenetre.getSelectionModel().getSelectedIndex());
     }
     
