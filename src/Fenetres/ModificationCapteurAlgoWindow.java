@@ -6,7 +6,9 @@
 package Fenetres;
 
 import AlgorithmeTemperature.AlgorithmeTempAleatoire;
+import AlgorithmeTemperature.AlgorithmeTempAleatoireFenetre;
 import AlgorithmeTemperature.AlgorithmeTempConstant;
+import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -58,7 +60,7 @@ public class ModificationCapteurAlgoWindow extends Stage {
     private void initialize(){
         //intervalleMAJ.setValue(capteur.getIntervalleMAJ());
         //spinMAJ
-        cbAlgo.getItems().addAll(new AlgorithmeTempAleatoire(),new AlgorithmeTempConstant());
+        cbAlgo.getItems().addAll(new AlgorithmeTempAleatoire(),new AlgorithmeTempConstant(),new AlgorithmeTempAleatoireFenetre(),new AlgorithmeTempAleatoireBorne());
         cbAlgo.getSelectionModel().selectFirst();
     }
     

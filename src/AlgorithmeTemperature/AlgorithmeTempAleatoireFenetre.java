@@ -42,4 +42,12 @@ public class AlgorithmeTempAleatoireFenetre extends AlgorithmeTemperature{
     public String toString(){
         return "température aléatoire fenêtré";
     }
+
+    @Override
+    public void setParametres(double... arguments) {
+        setFenetre(arguments[0]);
+        if(arguments.length>1){
+            setValeur(arguments[1]);
+        }
+    }
 }

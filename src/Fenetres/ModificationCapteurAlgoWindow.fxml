@@ -11,15 +11,25 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />        
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />        
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />        
   </rowConstraints>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />   
   </columnConstraints>
   <Label text="Intervalle de mise à jour" GridPane.halignment="CENTER" />
-  <Label GridPane.rowIndex="1" text="Algorithme utilisé" GridPane.halignment="CENTER"/>
+  <Label GridPane.rowIndex="1" text="Algorithme utilisé" GridPane.halignment="CENTER"/>   
   <Spinner GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="spinMAJ" />
-  <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="cbAlgo"/>  
-  <Button GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Ok"/>
-  <Button GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Annuler"/>
+  <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="cbAlgo"/> 
+  <Label GridPane.rowIndex="2" text="Paramètres" GridPane.halignment="CENTER"/>
+  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES"/>
+        <ColumnConstraints hgrow="SOMETIMES"/>   
+    </columnConstraints>
+    <TextField />
+    <TextField  GridPane.columnIndex="1"/>
+  </GridPane>  
+  <Button GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Ok"/>
+  <Button GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Annuler"/>
 </GridPane>

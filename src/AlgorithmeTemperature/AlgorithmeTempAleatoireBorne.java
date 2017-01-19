@@ -42,4 +42,15 @@ public class AlgorithmeTempAleatoireBorne extends AlgorithmeTemperature{
     public String toString(){
         return "température aléatoire borné";
     }
+
+    @Override
+    public void setParametres(double... arguments) {
+        setMin(arguments[0]);
+        if(arguments.length>1){
+            setMax(arguments[1]);
+            if(min!=arguments[0]){
+                setMin(arguments[0]);
+            }
+        }
+    }
 }

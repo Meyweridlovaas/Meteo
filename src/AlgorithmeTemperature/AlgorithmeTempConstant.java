@@ -32,5 +32,10 @@ public class AlgorithmeTempConstant extends AlgorithmeTemperature{
     public String toString(){
         return "température constant";
     }
+
+    @Override
+    public void setParametres(double... arguments) {
+        setValeur(arguments[0]);
+    }
     
 }

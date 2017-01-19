@@ -22,5 +22,10 @@ public class AlgorithmeTempAleatoire extends AlgorithmeTemperature{
     public String toString(){
         return "température aléatoire";
     }
+
+    @Override
+    public void setParametres(double... arguments) {
+        return;
+    }
     
 }

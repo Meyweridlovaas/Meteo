@@ -10,5 +10,13 @@ package AlgorithmeTemperature;
  * @author vagonon1
  */
 public abstract class AlgorithmeTemperature {
+    
+    
     public abstract double genererTemperature();
+    
+    /**
+     * 
+     * @param arguments 
+     */
+    public abstract void setParametres(double... arguments);
 }
