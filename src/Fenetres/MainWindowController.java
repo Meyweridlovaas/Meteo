@@ -48,11 +48,8 @@ public class MainWindowController implements Initializable {
         capteursAlgo.add(new CapteurAvecAlgorithme());
         megaCapteurs.add(new MegaCapteur());
         SpinnerWindowController ctrl= new SpinnerWindowController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fenetres/SpinnerWindow.fxml"));
-        loader.setController(ctrl);
         fenetres.add(ctrl);
-        fenetres.add(new IconeWindowController());
-        fenetres.add(new ThermometreWindowController());
+        ctrl.show();
         listFenetre.getSelectionModel().selectFirst();
         listCapt.getSelectionModel().selectFirst();
         listMegaCapt.getSelectionModel().selectFirst();
@@ -75,7 +72,16 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void AjouterFenetre(){
-        
+        CreationFenetreWindowController win = new CreationFenetreWindowController();
+        win.showAndWait();
+        Fenetre fenetre=win.getFenetre();
+        if(!win.hasCanceled()){
+            if(ModifierFenetre(fenetre)){
+                fenetres.add(fenetre);
+                fenetre.setResizable(false);
+                fenetre.show();
+            }            
+        }
     }
     
     @FXML
@@ -94,11 +100,13 @@ public class MainWindowController implements Initializable {
     }
     
     @FXML
-    public void ModifierCapteurAlgo(){
-        //capteursAlgo.get(listCapt.getSelectionModel().getSelectedIndex()).setAlgorithme(new AlgorithmeTempAleatoireBorne());
-        //listCapt.getSelectionModel().getSelectedItem().setAlgorithme(new AlgorithmeTempAleatoireBorne());
+    public void ModifierCapteurAlgo(){        
         ModificationCapteurAlgoWindow win = new ModificationCapteurAlgoWindow(listCapt.getSelectionModel().getSelectedItem());
-        win.showAndWait();        
+        win.showAndWait();
+        ObservableList<CapteurAvecAlgorithme> list=listCapt.getItems();
+        listCapt.setItems(null);
+        listCapt.setItems(list);
+        listCapt.getSelectionModel().selectFirst();
     }
     
     @FXML
@@ -108,7 +116,13 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void ModifierFenetre(){
-        //System.out.println(listFenetre.getSelectionModel().getSelectedItem());
+        ModifierFenetre(listFenetre.getSelectionModel().getSelectedItem());
+    }
+    
+    private boolean ModifierFenetre(Fenetre fenetre){
+        ModificationFenetreWindowController win=new ModificationFenetreWindowController(fenetre, capteursAlgo, megaCapteurs);
+        win.showAndWait();
+        return !win.hasCanceled();
     }
     
 }

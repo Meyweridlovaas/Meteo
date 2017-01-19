@@ -13,6 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import Interfaces.IDoubleObservateur;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import meteo.Capteur;
 
 /**
@@ -20,7 +23,7 @@ import meteo.Capteur;
  *
  * @author vagonon1
  */
-public class SpinnerWindowController extends Fenetre implements Initializable {
+public class SpinnerWindowController extends Fenetre {
 
     /**
      * Initializes the controller class.
@@ -28,8 +31,20 @@ public class SpinnerWindowController extends Fenetre implements Initializable {
     @FXML Spinner<Double> spinner;
     SpinnerValueFactory<Double> valueFactory;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public SpinnerWindowController(){
+        
+        FXMLLoader SpinnerWindowLoader= new FXMLLoader(getClass().getResource("SpinnerWindow.fxml"));
+        SpinnerWindowLoader.setController(this); 
+        
+        try{
+            setScene(new Scene(SpinnerWindowLoader.load()));
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @FXML
+    private void initialize() {
         valueFactory = new SpinnerValueFactory<Double>() {
             @Override
             public void decrement(int steps) {
@@ -46,7 +61,7 @@ public class SpinnerWindowController extends Fenetre implements Initializable {
 
     @Override
     public void update() {
-        valueFactory.setValue(observe.getTemperature());
+        valueFactory.setValue(getObserve().getTemperature());
     }
     
     @Override

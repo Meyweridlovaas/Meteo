@@ -4,6 +4,9 @@ import Interfaces.IDoubleObservable;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import Interfaces.IDoubleObservateur;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import meteo.Capteur;
         
 
@@ -21,6 +24,24 @@ public class IconeWindowController extends Fenetre {
     @FXML private ImageView icone;
     
     private SelectionneurImage selectionneurImage;
+    
+    public IconeWindowController(){
+        selectionneurImage=new Selectionneur2();
+        
+        FXMLLoader iconeWindowLoader= new FXMLLoader(getClass().getResource("IconeWindow.fxml"));
+        iconeWindowLoader.setController(this); 
+        
+        try{
+            setScene(new Scene(iconeWindowLoader.load()));
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @FXML
+    private void initialize(){
+        
+    }
 
     public SelectionneurImage getSelectionneurImage() {
         return selectionneurImage;        
@@ -28,9 +49,7 @@ public class IconeWindowController extends Fenetre {
 
     public void setSelectionneurImage(SelectionneurImage selectionneurImage) {
         this.selectionneurImage = selectionneurImage;
-    }
-    
-    public IconeWindowController(){}
+    } 
     
     @FXML
     public void ChoixImage(double temperature){
@@ -39,7 +58,7 @@ public class IconeWindowController extends Fenetre {
 
     @Override
     public void update() {        
-        ChoixImage(observe.getTemperature());
+        ChoixImage(getObserve().getTemperature());
     }
     
     @Override

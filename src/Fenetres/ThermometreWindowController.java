@@ -11,6 +11,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.text.Text;
 import Interfaces.IDoubleObservateur;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import meteo.Capteur;
 
 
@@ -30,8 +33,22 @@ public class ThermometreWindowController extends Fenetre {
     
     private Double min = new Double(-30);
     private Double max = new Double(50);
-
     
+    public ThermometreWindowController(){
+        FXMLLoader thermometreWindowLoader= new FXMLLoader(getClass().getResource("ThermometreWindow.fxml"));
+        thermometreWindowLoader.setController(this); 
+        
+        try{
+            setScene(new Scene(thermometreWindowLoader.load()));
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @FXML
+    private void initialize(){
+        
+    }
     
     public void setProgres(double temperature){
 
@@ -62,7 +79,7 @@ public class ThermometreWindowController extends Fenetre {
     
     @Override
     public void update() {
-        setProgres(observe.getTemperature());
+        setProgres(getObserve().getTemperature());
     }
     
     @Override

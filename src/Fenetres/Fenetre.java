@@ -7,15 +7,16 @@ package Fenetres;
 
 import Interfaces.IDoubleObservable;
 import Interfaces.IDoubleObservateur;
+import javafx.stage.Stage;
 import meteo.Capteur;
 
 /**
  *
  * @author vagonon1
  */
-public abstract class Fenetre implements IDoubleObservateur{
+public abstract class Fenetre extends Stage implements IDoubleObservateur{
     
-    protected Capteur observe;
+    private Capteur observe;
     
     @Override
     public void ajouterObserve(IDoubleObservable obs) {        
@@ -26,5 +27,12 @@ public abstract class Fenetre implements IDoubleObservateur{
     @Override
     public void supprimerObserve(IDoubleObservable obs) {
         observe=null;
+    }
+
+    /**
+     * @return the observe
+     */
+    public Capteur getObserve() {
+        return observe;
     }
 }

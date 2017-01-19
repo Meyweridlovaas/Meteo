@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="GridPane" prefHeight="280.0" prefWidth="150.0" xmlns:fx="http://javafx.com/fxml/1" > 
+  <rowConstraints>   
+    <RowConstraints vgrow="SOMETIMES" percentHeight="80.0" />
+    <RowConstraints vgrow="SOMETIMES" />        
+    <RowConstraints vgrow="SOMETIMES" />
+  </rowConstraints>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" />       
+  </columnConstraints>
+  <ListView fx:id="listCapt"/>
+  <Button GridPane.rowIndex="1" text="Sélectionner capteur" GridPane.halignment="CENTER" onAction="#selection" />  
+  <Button GridPane.rowIndex="2" text="Annuler" GridPane.halignment="CENTER" onAction="#annuler"/>  
+</GridPane>
