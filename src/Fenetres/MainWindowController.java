@@ -13,7 +13,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
 import meteo.Capteur;
@@ -27,9 +29,11 @@ import meteo.MegaCapteur;
  */
 public class MainWindowController implements Initializable {
     
-    ObservableList<CapteurAvecAlgorithme> capteursAlgo;
-    ObservableList<MegaCapteur> megaCapteurs;
-    ObservableList<Fenetre> fenetres;
+    private static final String ARE_YOU_SUR_TEXT = "Supprimer cet objet ? ";
+    
+    private ObservableList<CapteurAvecAlgorithme> capteursAlgo;
+    private ObservableList<MegaCapteur> megaCapteurs;
+    private ObservableList<Fenetre> fenetres;
 
     @FXML private ListView<CapteurAvecAlgorithme> listCapt ;
     @FXML private ListView<MegaCapteur> listMegaCapt ;
@@ -84,18 +88,36 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void SupprimerCapteurAlgo(){
-        capteursAlgo.remove(listCapt.getSelectionModel().getSelectedIndex());
+        Alert confirmation = new Alert(Alert.AlertType.WARNING, 
+                                    ARE_YOU_SUR_TEXT+listCapt.getSelectionModel().getSelectedItem(),
+                                    ButtonType.YES, ButtonType.NO);
+        confirmation.showAndWait();
+        if(confirmation.getResult()==ButtonType.YES){
+            capteursAlgo.remove(listCapt.getSelectionModel().getSelectedIndex());
+        }        
     }
     
     @FXML
     public void SupprimerMegaCapteur(){
-        megaCapteurs.remove(listMegaCapt.getSelectionModel().getSelectedIndex());
+        Alert confirmation = new Alert(Alert.AlertType.WARNING, 
+                                    ARE_YOU_SUR_TEXT+listMegaCapt.getSelectionModel().getSelectedItem(),
+                                    ButtonType.YES, ButtonType.NO);
+        confirmation.showAndWait();
+        if(confirmation.getResult()==ButtonType.YES){
+            megaCapteurs.remove(listMegaCapt.getSelectionModel().getSelectedIndex());
+        }        
     }
     
     @FXML
     public void SupprimerFenetre(){
-        listFenetre.getSelectionModel().getSelectedItem().close();
-        fenetres.remove(listFenetre.getSelectionModel().getSelectedIndex());
+        Alert confirmation = new Alert(Alert.AlertType.WARNING, 
+                                    ARE_YOU_SUR_TEXT+listFenetre.getSelectionModel().getSelectedItem(),
+                                    ButtonType.YES, ButtonType.NO);
+        confirmation.showAndWait();
+        if(confirmation.getResult()==ButtonType.YES){
+            listFenetre.getSelectionModel().getSelectedItem().close();
+            fenetres.remove(listFenetre.getSelectionModel().getSelectedIndex());
+        }        
     }
     
     @FXML
