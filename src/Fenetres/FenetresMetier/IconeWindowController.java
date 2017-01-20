@@ -1,4 +1,4 @@
-package Fenetres;
+package Fenetres.FenetresMetier;
 
 import Interfaces.IDoubleObservable;
 import javafx.fxml.FXML;

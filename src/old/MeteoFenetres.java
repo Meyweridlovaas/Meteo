@@ -15,9 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import Fenetres.IconeWindowController;
-import Fenetres.Selectionneur2;
-import Fenetres.ThermometreWindowController;
+import Fenetres.FenetresMetier.IconeWindowController;
+import Fenetres.FenetresMetier.Selectionneur2;
+import Fenetres.FenetresMetier.ThermometreWindowController;
 
 /**
  *

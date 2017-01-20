@@ -5,6 +5,10 @@
  */
 package Fenetres;
 
+import Fenetres.FenetresMetier.ThermometreWindowController;
+import Fenetres.FenetresMetier.IconeWindowController;
+import Fenetres.FenetresMetier.SpinnerWindowController;
+import Fenetres.FenetresMetier.Fenetre;
 import AlgorithmeTemperature.AlgorithmeTempAleatoire;
 import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import AlgorithmeTemperature.AlgorithmeTempAleatoireFenetre;
@@ -32,7 +36,7 @@ public class CreationFenetreWindowController extends Stage {
     private boolean hasCanceled;
     
     public CreationFenetreWindowController(){
-        hasCanceled=false;
+        hasCanceled=true;
         
         FXMLLoader creationWindowLoader= new FXMLLoader(getClass().getResource("CreationFenetreWindow.fxml"));
         creationWindowLoader.setController(this);
@@ -55,13 +59,13 @@ public class CreationFenetreWindowController extends Stage {
     
     @FXML
     private void ok(){
+        hasCanceled=false;
         fenetre=(Fenetre) cbFenetre.getSelectionModel().getSelectedItem();
         close();
     }
     
     @FXML
-    private void annuler(){
-        hasCanceled=true;
+    private void annuler(){        
         close();
     }
     

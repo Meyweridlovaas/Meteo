@@ -5,7 +5,6 @@
  */
 package Fenetres;
 
-import Fenetres.FenetresMetier.Fenetre;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-
 import meteo.Capteur;
 import meteo.CapteurAvecAlgorithme;
 import meteo.MegaCapteur;
@@ -26,27 +24,33 @@ import meteo.MegaCapteur;
  *
  * @author Administrateur
  */
-public class ModificationFenetreWindowController extends Stage {
+public class SelectionMegaCapteurController extends Stage {
     
+    private Capteur capt;
+    private MegaCapteur megaCapt;
+    private Integer poids;
+    private boolean hasCanceled;
     private ObservableList<Capteur> capteurs;
+    private ObservableList<Capteur> capteursPresents;
     private ObservableList<CapteurAvecAlgorithme> capteursAlgo;
     private ObservableList<MegaCapteur> megaCapteurs;
-    private Fenetre fenetre;
-    private boolean hasCanceled;
     
-    @FXML ListView<Capteur> listCapt;
+    @FXML private ListView<Capteur> listCapt;    
     
-    public ModificationFenetreWindowController(Fenetre fenetre, ObservableList<CapteurAvecAlgorithme> capteursAlgo, ObservableList<MegaCapteur> megaCapteurs){
-        hasCanceled=true;
-        this.fenetre=fenetre;
+    public SelectionMegaCapteurController(MegaCapteur capt, ObservableList<CapteurAvecAlgorithme> capteursAlgo, ObservableList<MegaCapteur> megaCapteurs, ObservableList<Capteur> capteursPresents){
+        
+        megaCapt=capt;
         this.capteursAlgo=capteursAlgo;
         this.megaCapteurs=megaCapteurs;
+        this.capteursPresents=capteursPresents;
+        hasCanceled=true;
+        poids=1;
         
-        FXMLLoader modificationWindowLoader= new FXMLLoader(getClass().getResource("ModificationFenetreWindow.fxml"));
-        modificationWindowLoader.setController(this);
+        FXMLLoader selectionMegaCaptLoader= new FXMLLoader(getClass().getResource("SelectionMegaCapteur.fxml"));
+        selectionMegaCaptLoader.setController(this); 
         
         try{
-            setScene(new Scene(modificationWindowLoader.load()));
+            setScene(new Scene(selectionMegaCaptLoader.load()));
         }catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -56,29 +60,35 @@ public class ModificationFenetreWindowController extends Stage {
      * Initializes the controller class.
      */
     @FXML
-    public void initialize() {
-        capteurs=listCapt.getItems();       
+    private void initialize() {
+        capteurs=listCapt.getItems();
         capteurs.addAll(capteursAlgo);
         capteurs.addAll(megaCapteurs);
-        listCapt.getSelectionModel().selectFirst();
+        capteurs.remove(megaCapt);
+        capteurs.removeAll(capteursPresents);
     }
     
     @FXML
-    private void selection(){
+    public void selection(){
         hasCanceled=false;
-        listCapt.getSelectionModel().getSelectedItem().ajouterObservateur(fenetre);
+        capt=listCapt.getSelectionModel().getSelectedItem();
         close();
     }
     
     @FXML
-    private void annuler(){        
+    public void annuler(){        
         close();
     }
     
-    /**
-     * @return the hasCanceled
-     */
-    public boolean hasCanceled() {
+    public Capteur getCapteur(){
+        return capt;
+    }
+    
+    public Integer getPoids(){
+        return poids;
+    }
+    
+    public boolean hasCancelled(){
         return hasCanceled;
     }
 }

@@ -5,6 +5,8 @@
  */
 package Fenetres;
 
+import Fenetres.FenetresMetier.SpinnerWindowController;
+import Fenetres.FenetresMetier.Fenetre;
 import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -69,7 +71,12 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void AjouterMegaCapteur(){
-        
+        MegaCapteur capt = new MegaCapteur();
+        ModificationMegaCapteurController win = new ModificationMegaCapteurController(capt,capteursAlgo,megaCapteurs);
+        win.showAndWait();
+        if(!win.hasCalcelled()){
+            megaCapteurs.add(capt);
+        }        
     }
     
     @FXML
@@ -132,7 +139,8 @@ public class MainWindowController implements Initializable {
     
     @FXML
     public void ModifierMegaCapteur(){
-        
+        ModificationMegaCapteurController win = new ModificationMegaCapteurController(listMegaCapt.getSelectionModel().getSelectedItem(),capteursAlgo,megaCapteurs);
+        win.show();
     }
     
     @FXML

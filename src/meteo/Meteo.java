@@ -7,10 +7,10 @@ package meteo;
 
 import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import AlgorithmeTemperature.AlgorithmeTempAleatoireFenetre;
-import Fenetres.IconeWindowController;
-import Fenetres.Selectionneur2;
-import Fenetres.SpinnerWindowController;
-import Fenetres.ThermometreWindowController;
+import Fenetres.FenetresMetier.IconeWindowController;
+import Fenetres.FenetresMetier.Selectionneur2;
+import Fenetres.FenetresMetier.SpinnerWindowController;
+import Fenetres.FenetresMetier.ThermometreWindowController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

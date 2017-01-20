@@ -45,7 +45,7 @@ public class ModificationCapteurAlgoWindow extends Stage {
 
     public ModificationCapteurAlgoWindow(CapteurAvecAlgorithme capt){        
         capteur=capt;
-        hasCanceled=false;
+        hasCanceled=true;
         
         FXMLLoader modificationWindowLoader= new FXMLLoader(getClass().getResource("ModificationCapteurAlgoWindow.fxml"));
         modificationWindowLoader.setController(this); 
@@ -79,8 +79,7 @@ public class ModificationCapteurAlgoWindow extends Stage {
     }
     
     @FXML
-    private void annuler(){
-        hasCanceled=true;
+    private void annuler(){        
         close();
     }
     
@@ -103,6 +102,7 @@ public class ModificationCapteurAlgoWindow extends Stage {
         }       
         capteur.setAlgorithme(nouvelAlgo);
         capteur.setIntervalleMAJ(valueFactory.getValue());
+        hasCanceled=false;
         close();
     }
 

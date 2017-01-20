@@ -10,6 +10,7 @@ import Interfaces.IDoubleObservateur;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
@@ -71,5 +72,17 @@ public class MegaCapteur extends Capteur implements IDoubleObservateur{
     @Override
     public String toString(){
         return "Méga capteur";
+    }
+    
+    public Set<Capteur> getCapteurs(){
+        return capteurs.keySet();
+    }
+    
+    public Integer getPoids(Capteur capt){
+        return capteurs.get(capt);
+    }
+    
+    public void setPoids(Capteur capt, Integer poids){
+        capteurs.put(capt, poids);
     }
 }

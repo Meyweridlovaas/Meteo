@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="GridPane" prefHeight="100.0" prefWidth="220.0" xmlns:fx="http://javafx.com/fxml/1" > 
+  <rowConstraints>   
+    <RowConstraints vgrow="SOMETIMES" percentHeight="70.0" />
+    <RowConstraints vgrow="SOMETIMES" />        
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />        
+  </rowConstraints>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />   
+  </columnConstraints>
+  <ListView fx:id="listCapt" GridPane.columnSpan="2" onMouseClicked="#selectionChanged"/>
+  <Button GridPane.rowIndex="1" GridPane.halignment="CENTER" text="Modifier poids" onAction="#modifPoids"/>
+  <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="tfPoids"/>
+  <Button GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Ajouter Capteur" onAction="#ajoutCapt"/>  
+  <Button GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER" text="Retirer Capteur" onAction="#retirerCapt"/>  
+  <Button GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Ok" onAction="#ok"/>  
+  <Button GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" text="Annuler" onAction="#annuler"/>
+</GridPane>

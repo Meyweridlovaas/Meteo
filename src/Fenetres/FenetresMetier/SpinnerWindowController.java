@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fenetres;
+package Fenetres.FenetresMetier;
 
 import Interfaces.IDoubleObservable;
 import java.net.URL;
