@@ -11,12 +11,19 @@ package AlgorithmeTemperature;
  */
 public abstract class AlgorithmeTemperature {
     
-    
+    /**
+     * génère une temperature
+     * 
+     * @return la température générée
+     */
     public abstract double genererTemperature();
     
     /**
+     * modifie les paramètres de l'algorithme
+     * différent pour chaque algorithme car leur paramètres sont différents
      * 
      * @param arguments 
-     */
+     * les arguments qui permettront de modifier les paramètres
+     */    
     public abstract void setParametres(double... arguments);
 }

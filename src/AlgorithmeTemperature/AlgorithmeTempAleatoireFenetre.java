@@ -18,31 +18,63 @@ public class AlgorithmeTempAleatoireFenetre extends AlgorithmeTemperature{
     
     private double valeur;
     private double fenetre;
-
+    
+    /**
+     * crée un AlgorithmeTempAleatoireFenetre
+     */
     public AlgorithmeTempAleatoireFenetre() {
         valeur=VALEUR_PAR_DEFAULT;
         fenetre=FENETRE_PAR_DEFAULT;
     }
     
+    /**
+     * change la valeur
+     * 
+     * @param valeur 
+     * nouvelle valeur
+     */
     public void setValeur(double valeur){
         this.valeur=valeur;
     }
     
+    /**
+     * change la fenetre
+     * 
+     * @param fenetre 
+     * nouvelle fenetre
+     */
     public void setFenetre(double fenetre){
         this.fenetre=fenetre>0?fenetre:this.fenetre;
     }   
     
+    /**
+     * génère une temperature aléatoire dans une fenêtre
+     * 
+     * @return la température générée
+     */
     @Override
     public double genererTemperature() {
         valeur+=random()*fenetre*2-fenetre;
         return valeur;
     }
     
+    /**
+     * Returns a string representation of the object.
+     * 
+     * @return a string representation of the object.
+     */
     @Override
     public String toString(){
         return "température aléatoire fenêtré";
     }
-
+    
+    /**
+     * modifie les paramètres de l'algorithme
+     * 
+     * @param arguments 
+     * le premier argument change la fenêtre
+     * le second éventuel argument change la valeur de départ
+     */
     @Override
     public void setParametres(double... arguments) {
         setFenetre(arguments[0]);
