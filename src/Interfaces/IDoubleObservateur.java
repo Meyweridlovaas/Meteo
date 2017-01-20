@@ -11,9 +11,25 @@ package Interfaces;
  * @author vagonon1
  */
 public interface IDoubleObservateur {
+    
+    /**
+     * méthode permettant à l'objet de se mettre à jour
+     */
     void update();
     
+    /**
+     * ajoute un objet observé
+     * 
+     * @param obs 
+     * objet observé
+     */
     void ajouterObserve(IDoubleObservable obs);
     
+    /**
+     * supprime un objet observé
+     * 
+     * @param obs 
+     * objet supprimé
+     */
     void supprimerObserve(IDoubleObservable obs);
 }

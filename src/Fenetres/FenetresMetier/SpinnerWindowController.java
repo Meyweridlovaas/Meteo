@@ -5,18 +5,12 @@
  */
 package Fenetres.FenetresMetier;
 
-import Interfaces.IDoubleObservable;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import Interfaces.IDoubleObservateur;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import meteo.Capteur;
 
 /**
  * FXML Controller class
@@ -25,12 +19,12 @@ import meteo.Capteur;
  */
 public class SpinnerWindowController extends Fenetre {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML Spinner<Double> spinner;
     SpinnerValueFactory<Double> valueFactory;
     
+    /**
+     * crée un SpinnerWindowController
+     */
     public SpinnerWindowController(){
         
         FXMLLoader SpinnerWindowLoader= new FXMLLoader(getClass().getResource("SpinnerWindow.fxml"));
@@ -43,6 +37,9 @@ public class SpinnerWindowController extends Fenetre {
         }
     }
     
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private void initialize() {
         valueFactory = new SpinnerValueFactory<Double>() {
@@ -58,12 +55,20 @@ public class SpinnerWindowController extends Fenetre {
         };
         spinner.setValueFactory(valueFactory);
     }
-
+    
+    /**
+     * met à jour le spinner
+     */
     @Override
     public void update() {
         valueFactory.setValue(getObserve().getTemperature());
     }
     
+    /**
+     * Returns a string representation of the object.
+     * 
+     * @return a string representation of the object.
+     */
     @Override
     public String toString(){
         return "Fenetre Spinner";

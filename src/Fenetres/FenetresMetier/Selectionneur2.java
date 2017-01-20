@@ -18,7 +18,14 @@ public class Selectionneur2 extends SelectionneurImage{
     Image imRes;
     
     
-    //Méthode de définition des intervalles de changement d'image.
+    /**
+     * sélectionne une image
+     * 
+     * @param temperature
+     * température permettant de déterminer l'image
+     * 
+     * @return l'image sélectionnée 
+     */
     @Override 
     public Image selectionImage(double temperature){
         if (temperature <= 5)

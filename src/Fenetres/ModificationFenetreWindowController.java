@@ -14,9 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-import meteo.Capteur;
-import meteo.CapteurAvecAlgorithme;
-import meteo.MegaCapteur;
+import Capteurs.Capteur;
+import Capteurs.CapteurAvecAlgorithme;
+import Capteurs.MegaCapteur;
 
 /**
  * FXML Controller class

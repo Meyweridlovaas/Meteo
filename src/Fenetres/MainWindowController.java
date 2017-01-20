@@ -16,8 +16,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
-import meteo.CapteurAvecAlgorithme;
-import meteo.MegaCapteur;
+import Capteurs.CapteurAvecAlgorithme;
+import Capteurs.MegaCapteur;
 
 /**
  * FXML Controller class

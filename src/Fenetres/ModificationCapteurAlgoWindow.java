@@ -19,7 +19,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import meteo.CapteurAvecAlgorithme;
+import Capteurs.CapteurAvecAlgorithme;
 
 /**
  * FXML Controller class

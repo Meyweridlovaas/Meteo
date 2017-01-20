@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package meteo;
+package Capteurs;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,13 +15,25 @@ import java.util.logging.Logger;
 public class ThreadCapteur extends Thread {
     private CapteurAvecAlgorithme capteur;
     private long tempsAttente;
-
+    
+    /**
+     * crée un ThreadCapteur
+     * 
+     * @param capteur
+     * le capteur auquel le thread est lié
+     * 
+     * @param tempsAttente 
+     * temps entre les mises à jour de température du capteur
+     */
     public ThreadCapteur(CapteurAvecAlgorithme capteur, double tempsAttente) {
         this.capteur = capteur;
         this.tempsAttente = (long)(tempsAttente*1000);
         this.start();
     }    
     
+    /**
+     * routine lancée à la création du ThreadCapteur
+     */
     @Override
     public void run(){
         while(true){

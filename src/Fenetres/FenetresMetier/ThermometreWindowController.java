@@ -5,16 +5,13 @@
  */
 package Fenetres.FenetresMetier;
 
-import Interfaces.IDoubleObservable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.text.Text;
-import Interfaces.IDoubleObservateur;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import meteo.Capteur;
 
 
 /**
@@ -34,6 +31,9 @@ public class ThermometreWindowController extends Fenetre {
     private Double min = new Double(-30);
     private Double max = new Double(50);
     
+    /**
+     * crée un ThermometreWindowController
+     */
     public ThermometreWindowController(){
         FXMLLoader thermometreWindowLoader= new FXMLLoader(getClass().getResource("ThermometreWindow.fxml"));
         thermometreWindowLoader.setController(this); 
@@ -45,11 +45,20 @@ public class ThermometreWindowController extends Fenetre {
         }
     }
     
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private void initialize(){
         
     }
     
+    /**
+     * met à jour le thermomètre
+     * 
+     * @param temperature 
+     * température à afficher
+     */
     public void setProgres(double temperature){
 
         if (temperature<min){
@@ -66,22 +75,41 @@ public class ThermometreWindowController extends Fenetre {
         }
     }
     
+    /**
+     * modifie le minimum
+     * 
+     * @param min 
+     * nouveau minimum
+     */
     public void setMin(Double min){
         this.min = min;
         thermometreValeurMin.setText(min.toString());
     }
     
+     /**
+     * modifie le maximum
+     * 
+     * @param max 
+     * nouveau maximum
+     */
     public void setMax(Double max){
         this.max = max;
         thermometreValeurMax.setText(max.toString());
     }
     
-    
+    /**
+     * met à jour le thermomètre
+     */
     @Override
     public void update() {
         setProgres(getObserve().getTemperature());
     }
     
+    /**
+     * Returns a string representation of the object.
+     * 
+     * @return a string representation of the object.
+     */
     @Override
     public String toString(){
         return "Fenetre Thermomètre";

@@ -13,5 +13,13 @@ import javafx.scene.image.Image;
  */
 public abstract class SelectionneurImage {
     
+    /**
+     * sélectionne une image
+     * 
+     * @param temperature
+     * température permettant de déterminer l'image
+     * 
+     * @return l'image sélectionnée 
+     */
     public abstract Image selectionImage(double temperature);
 }
