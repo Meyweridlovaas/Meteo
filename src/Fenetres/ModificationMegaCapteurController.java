@@ -6,12 +6,9 @@
 package Fenetres;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -36,6 +33,18 @@ public class ModificationMegaCapteurController extends Stage {
     @FXML private TextField tfPoids;
     @FXML private ListView<Capteur> listCapt;
     
+    /**
+     * crée une instance de ModificationMegaCapteurController
+     * 
+     * @param capt
+     * méga capteur à modifier
+     * 
+     * @param capteursAlgo
+     * liste des capteurs avec algorithmes disponibles
+     * 
+     * @param megaCapteurs 
+     * liste des méga capteurs disponibles
+     */
     public ModificationMegaCapteurController(MegaCapteur capt, ObservableList<CapteurAvecAlgorithme> capteursAlgo, ObservableList<MegaCapteur> megaCapteurs){
         this.capt=capt;
         this.capteursAlgo=capteursAlgo;
@@ -61,17 +70,29 @@ public class ModificationMegaCapteurController extends Stage {
         capteurs.addAll(capt.getCapteurs());
     }
     
+    /**
+     * appelé par le bouton "Ok"
+     * valide la modification du méga capteur
+     */
     @FXML
     public void ok(){
         hasCanceled=false;
         close();
     }
     
+    /**
+     * appelé par le bouton "Annuler"
+     * ferme la fenêtre
+     */
     @FXML
     public void annuler(){
         close();
     }
     
+    /**
+     * appelé par le bouton "Ajouter Capteur"
+     * permet d'ajouter un capteur au méga capteur
+     */
     @FXML
     public void ajoutCapt(){
         SelectionMegaCapteurController win=new SelectionMegaCapteurController(capt,capteursAlgo,megaCapteurs,capteurs);
@@ -82,6 +103,10 @@ public class ModificationMegaCapteurController extends Stage {
         }       
     }
     
+    /**
+     * appelé par le bouton "Retirer Capteur"
+     * permet de retirer le capteur sélectionné du méga capteur
+     */
     @FXML
     public void retirerCapt(){
         capt.supprimerCapteur(listCapt.getSelectionModel().getSelectedItem());
@@ -89,6 +114,10 @@ public class ModificationMegaCapteurController extends Stage {
         selectionChanged();
     }
     
+    /**
+     * appelé par le bouton "Modifier poids"
+     * permet de modifier le poids du capteur sélectionné
+     */
     @FXML
     public void modifPoids(){
         try {
@@ -102,11 +131,18 @@ public class ModificationMegaCapteurController extends Stage {
         }
     }
     
+    /**
+     * appelé par clic sur la liste
+     * permet de mettre à jour le poids affiché dans le TextField
+     */
     @FXML
     public void selectionChanged(){
         tfPoids.setText(capt.getPoids(listCapt.getSelectionModel().getSelectedItem()).toString());
     }
     
+    /** 
+     * @return the hasCanceled
+     */
     public boolean hasCalcelled(){
         return hasCanceled;
     }

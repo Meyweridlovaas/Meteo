@@ -11,15 +11,9 @@ import AlgorithmeTemperature.AlgorithmeTempConstant;
 import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import AlgorithmeTemperature.AlgorithmeTemperature;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -42,7 +36,13 @@ public class ModificationCapteurAlgoWindow extends Stage {
     @FXML ChoiceBox cbAlgo;
     @FXML TextField tfParam1;
     @FXML TextField tfParam2;
-
+    
+    /**
+     * permet de modifier un capteur
+     * 
+     * @param capt 
+     * le capteur à modifier
+     */
     public ModificationCapteurAlgoWindow(CapteurAvecAlgorithme capt){        
         capteur=capt;
         hasCanceled=true;
@@ -57,6 +57,9 @@ public class ModificationCapteurAlgoWindow extends Stage {
         }
     }
     
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private void initialize(){
         valueFactory=new SpinnerValueFactory<Double>() {
@@ -78,11 +81,19 @@ public class ModificationCapteurAlgoWindow extends Stage {
         cbAlgo.getSelectionModel().selectFirst();
     }
     
+    /**
+     * appelé par le bouton "Annuler"
+     * permet d'annuler la modification du capteur
+     */
     @FXML
     private void annuler(){        
         close();
     }
     
+    /**
+     * appelé par le bouton "Ok"
+     * permet de confirmer la modification du capteur
+     */
     @FXML
     private void ok(){
         

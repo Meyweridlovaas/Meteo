@@ -7,20 +7,15 @@ package Fenetres;
 
 import Fenetres.FenetresMetier.SpinnerWindowController;
 import Fenetres.FenetresMetier.Fenetre;
-import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
-import meteo.Capteur;
 import meteo.CapteurAvecAlgorithme;
 import meteo.MegaCapteur;
 
@@ -59,6 +54,10 @@ public class MainWindowController implements Initializable {
         listMegaCapt.getSelectionModel().selectFirst();
     }
     
+    /**
+     * appelé par le bouton "Ajouter capteur"
+     * permet d'ajouter un capteur avec algorithme
+     */
     @FXML
     public void AjouterCapteurAlgo(){
         CapteurAvecAlgorithme capt=new CapteurAvecAlgorithme();
@@ -69,6 +68,10 @@ public class MainWindowController implements Initializable {
         }        
     }
     
+    /**
+     * appelé par le bouton "Ajouter méga-capteur"
+     * permet d'ajouter un méga capteur
+     */
     @FXML
     public void AjouterMegaCapteur(){
         MegaCapteur capt = new MegaCapteur();
@@ -79,6 +82,10 @@ public class MainWindowController implements Initializable {
         }        
     }
     
+    /**
+     * appelé par le bouton "Ajouter fenêtre"
+     * permet d'ajouter une fenêtre
+     */
     @FXML
     public void AjouterFenetre(){
         CreationFenetreWindowController win = new CreationFenetreWindowController();
@@ -93,6 +100,10 @@ public class MainWindowController implements Initializable {
         }
     }
     
+    /**
+     * appelé par le bouton "Supprimer capteur"
+     * permet de supprimer un capteur avec algorithme
+     */
     @FXML
     public void SupprimerCapteurAlgo(){
         Alert confirmation = new Alert(Alert.AlertType.WARNING, 
@@ -104,6 +115,10 @@ public class MainWindowController implements Initializable {
         }        
     }
     
+    /**
+     * appelé par le bouton "Supprimer méga-capteur"
+     * permet de supprimer un méga capteur
+     */
     @FXML
     public void SupprimerMegaCapteur(){
         Alert confirmation = new Alert(Alert.AlertType.WARNING, 
@@ -115,6 +130,10 @@ public class MainWindowController implements Initializable {
         }        
     }
     
+    /**
+     * appelé par le bouton "Supprimer fenêtre"
+     * permet de supprimer une fenêtre
+     */
     @FXML
     public void SupprimerFenetre(){
         Alert confirmation = new Alert(Alert.AlertType.WARNING, 
@@ -127,6 +146,10 @@ public class MainWindowController implements Initializable {
         }        
     }
     
+    /**
+     * appelé par le bouton "Modifier capteur"
+     * permet de modifier un capteur avec algorithme
+     */
     @FXML
     public void ModifierCapteurAlgo(){        
         ModificationCapteurAlgoWindow win = new ModificationCapteurAlgoWindow(listCapt.getSelectionModel().getSelectedItem());
@@ -137,17 +160,33 @@ public class MainWindowController implements Initializable {
         listCapt.getSelectionModel().selectFirst();
     }
     
+    /**
+     * appelé par le bouton "Modifier méga-capteur"
+     * permet de modifier un méga capteur
+     */
     @FXML
     public void ModifierMegaCapteur(){
         ModificationMegaCapteurController win = new ModificationMegaCapteurController(listMegaCapt.getSelectionModel().getSelectedItem(),capteursAlgo,megaCapteurs);
         win.show();
     }
     
+    /**
+     * appelé par le bouton "Modifier fenêtre"
+     * permet de modifier une fenêtre
+     */
     @FXML
     public void ModifierFenetre(){
         ModifierFenetre(listFenetre.getSelectionModel().getSelectedItem());
     }
     
+    /**
+     * permet de modifier une fenêtre
+     * 
+     * @param fenetre
+     * la fenêtre à modifier
+     * 
+     * @return faux si l'opération a été annulée, vrai sinon
+     */
     private boolean ModifierFenetre(Fenetre fenetre){
         ModificationFenetreWindowController win=new ModificationFenetreWindowController(fenetre, capteursAlgo, megaCapteurs);
         win.showAndWait();

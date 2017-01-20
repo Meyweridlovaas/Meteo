@@ -9,18 +9,10 @@ import Fenetres.FenetresMetier.ThermometreWindowController;
 import Fenetres.FenetresMetier.IconeWindowController;
 import Fenetres.FenetresMetier.SpinnerWindowController;
 import Fenetres.FenetresMetier.Fenetre;
-import AlgorithmeTemperature.AlgorithmeTempAleatoire;
-import AlgorithmeTemperature.AlgorithmeTempAleatoireBorne;
-import AlgorithmeTemperature.AlgorithmeTempAleatoireFenetre;
-import AlgorithmeTemperature.AlgorithmeTempConstant;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
@@ -35,6 +27,9 @@ public class CreationFenetreWindowController extends Stage {
     private Fenetre fenetre;
     private boolean hasCanceled;
     
+    /**
+     * crée une nouvelle instance de CreationFenetreWindowController
+     */
     public CreationFenetreWindowController(){
         hasCanceled=true;
         
@@ -57,6 +52,10 @@ public class CreationFenetreWindowController extends Stage {
         cbFenetre.getSelectionModel().selectFirst();        
     }    
     
+    /**
+     * appelé par le bouton "Ok"
+     * valide la création de fenêtre
+     */
     @FXML
     private void ok(){
         hasCanceled=false;
@@ -64,6 +63,10 @@ public class CreationFenetreWindowController extends Stage {
         close();
     }
     
+    /**
+     * appelé par le bouton "Annuler"
+     * annule la création de la fenêtre
+     */
     @FXML
     private void annuler(){        
         close();

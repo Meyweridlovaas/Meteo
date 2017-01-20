@@ -7,12 +7,9 @@ package Fenetres;
 
 import Fenetres.FenetresMetier.Fenetre;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -36,6 +33,19 @@ public class ModificationFenetreWindowController extends Stage {
     
     @FXML ListView<Capteur> listCapt;
     
+    /**
+     * crée une nouvelle instance de ModificationFenetreWindowController
+     *  
+     * @param fenetre
+     * la fenêtre à modifier
+     * 
+     * @param capteursAlgo
+     * liste des capteurs avec algorithme disponibles
+     * 
+     * @param megaCapteurs 
+     * liste des méga capteurs disponibles
+     * 
+     */
     public ModificationFenetreWindowController(Fenetre fenetre, ObservableList<CapteurAvecAlgorithme> capteursAlgo, ObservableList<MegaCapteur> megaCapteurs){
         hasCanceled=true;
         this.fenetre=fenetre;
@@ -63,6 +73,10 @@ public class ModificationFenetreWindowController extends Stage {
         listCapt.getSelectionModel().selectFirst();
     }
     
+    /**
+     * appelé par le bouton "Sélectionner capteur"
+     * permet de valider la sélection du capteur
+     */
     @FXML
     private void selection(){
         hasCanceled=false;
@@ -70,6 +84,10 @@ public class ModificationFenetreWindowController extends Stage {
         close();
     }
     
+    /**
+     * appelé par le bouton "Annuler"
+     * permet d'annuler la sélection de capteur
+     */
     @FXML
     private void annuler(){        
         close();

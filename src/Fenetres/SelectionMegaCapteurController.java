@@ -6,12 +6,9 @@
 package Fenetres;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -37,6 +34,21 @@ public class SelectionMegaCapteurController extends Stage {
     
     @FXML private ListView<Capteur> listCapt;    
     
+    /**
+     * crée un SelectionMegaCapteurController
+     * 
+     * @param capt
+     * méga capteur ne devant pas être ajouté car celui auquel l'ajout sera fait
+     * 
+     * @param capteursAlgo
+     * liste des capteurs avec algorithmes disponibles
+     * 
+     * @param megaCapteurs
+     * liste des méga capteurs disponibles
+     * 
+     * @param capteursPresents 
+     * liste des capteurs ne devant pas être ajoutés car déjà présents
+     */
     public SelectionMegaCapteurController(MegaCapteur capt, ObservableList<CapteurAvecAlgorithme> capteursAlgo, ObservableList<MegaCapteur> megaCapteurs, ObservableList<Capteur> capteursPresents){
         
         megaCapt=capt;
@@ -68,6 +80,10 @@ public class SelectionMegaCapteurController extends Stage {
         capteurs.removeAll(capteursPresents);
     }
     
+    /**
+     * appelé par le bouton "Sélectionner capteur"
+     * permet de valider la sélection
+     */
     @FXML
     public void selection(){
         hasCanceled=false;
@@ -75,19 +91,32 @@ public class SelectionMegaCapteurController extends Stage {
         close();
     }
     
+    /**
+     * appelé par le bouton "Annuler"
+     * permet d'annuler la sélection
+     */
     @FXML
     public void annuler(){        
         close();
     }
     
+    /**
+     * @return the capt
+     */
     public Capteur getCapteur(){
         return capt;
     }
     
+    /**
+     * @return the poids
+     */
     public Integer getPoids(){
         return poids;
     }
     
+    /**
+     * @return the hasCanceled 
+     */
     public boolean hasCancelled(){
         return hasCanceled;
     }
