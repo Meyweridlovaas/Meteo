@@ -62,7 +62,7 @@ public class ModificationCapteurAlgoWindow extends Stage {
         valueFactory=new SpinnerValueFactory<Double>() {
             @Override
             public void decrement(int steps) {
-                if(getValue()>0){
+                if(getValue()>0.5){
                     setValue(getValue()-0.5);
                 }                
             }
